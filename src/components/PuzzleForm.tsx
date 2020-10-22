@@ -36,9 +36,9 @@ export const PuzzleForm = (props: PuzzleFormProps) => {
     z: '',
   };
 
-  const fieldArr: WordField[] = props.text
+  const fieldArr: JSX.Element[] = props.text
     .split(' ')
-    .map(word => <WordField />);
+    .map(word => <WordField word={word} />);
 
   return (
     <div>
