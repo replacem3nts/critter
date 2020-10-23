@@ -1,5 +1,6 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
+import { LetterInput, WordDiv } from './UI/WordFieldUI';
 
 interface WordFieldProps {
   word: string;
@@ -17,28 +18,25 @@ export const WordField = (props: WordFieldProps) => {
       if (char.match(/[a-z]/)) {
         return (
           <span key={uuid()}>
-            <div>
-              <input
-                name={char}
-                value={props.alphabet[char]}
-                onChange={e =>
-                  props.setAlpha({ ...props.alphabet, [char]: e.target.value })
-                }
-                autoComplete="false"
-              />
-            </div>
+            <LetterInput
+              name={char}
+              value={props.alphabet[char]}
+              onChange={e =>
+                props.setAlpha({ ...props.alphabet, [char]: e.target.value })
+              }
+              autoComplete="false"
+            />
             <div>{char}</div>
           </span>
         );
       }
       return (
         <span key={uuid()}>
-          <div></div>
           <div>{char}</div>
         </span>
       );
     });
   };
 
-  return <div>{renderFields()}</div>;
+  return <WordDiv>{renderFields()}</WordDiv>;
 };

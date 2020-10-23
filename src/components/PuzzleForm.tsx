@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { WordField } from './WordField';
 import { v4 as uuid } from 'uuid';
+import { StyledForm } from './UI/PuzzleFormUI';
 
 interface PuzzleFormProps {
   text: string;
@@ -49,9 +50,5 @@ export const PuzzleForm = (props: PuzzleFormProps) => {
       />
     ));
 
-  return (
-    <div>
-      <form>{fieldArr}</form>
-    </div>
-  );
+  return <StyledForm>{fieldArr}</StyledForm>;
 };
