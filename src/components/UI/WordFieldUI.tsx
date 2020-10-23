@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
-export const WordDiv = styled.span`
-  display: grid;
-  grid-auto-flow: column;
-  background-color: lightgoldenrodyellow;
+interface WordDivProps {
+  charCount: number;
+}
+
+export const WordDiv = styled.span<WordDivProps>`
+  grid-column: span ${props => props.charCount};
 `;
 
 export const LetterInput = styled.input`

@@ -26,7 +26,7 @@ export const WordField = (props: WordFieldProps) => {
               }
               autoComplete="false"
             />
-            <div>{char}</div>
+            {char}
           </span>
         );
       }
@@ -38,5 +38,5 @@ export const WordField = (props: WordFieldProps) => {
     });
   };
 
-  return <WordDiv>{renderFields()}</WordDiv>;
+  return <WordDiv charCount={props.word.length}>{renderFields()}</WordDiv>;
 };

@@ -36,6 +36,8 @@ const initKey: { [key: string]: string } = {
   z: '',
 };
 
+const bottomKey = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
 export const PuzzleForm = (props: PuzzleFormProps) => {
   const [alpha, setAlpha] = useState(initKey);
 
@@ -43,5 +45,16 @@ export const PuzzleForm = (props: PuzzleFormProps) => {
     <WordField key={uuid()} word={word} alphabet={alpha} setAlpha={setAlpha} />
   ));
 
-  return <StyledForm>{fieldArr}</StyledForm>;
+  return (
+    <StyledForm>
+      {fieldArr}
+      <br />
+      <WordField
+        key={uuid()}
+        word={bottomKey}
+        alphabet={alpha}
+        setAlpha={setAlpha}
+      />
+    </StyledForm>
+  );
 };
