@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { LetterInput, WordDiv } from './UI/WordFieldUI';
 
 interface WordFieldProps {
-  word: string;
+  word: string[];
   setAlpha: React.Dispatch<
     React.SetStateAction<{
       [key: string]: string;
@@ -14,7 +14,7 @@ interface WordFieldProps {
 
 export const WordField = (props: WordFieldProps) => {
   const renderFields = (): JSX.Element[] => {
-    return props.word.split('').map((char: string) => {
+    return props.word.map((char: string) => {
       if (char.match(/[a-z]/)) {
         return (
           <span key={uuid()}>

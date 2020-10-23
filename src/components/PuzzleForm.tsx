@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { StyledForm } from './UI/PuzzleFormUI';
 
 interface PuzzleFormProps {
-  text: string;
+  text: string[][];
 }
 
 const initKey: { [key: string]: string } = {
@@ -39,16 +39,9 @@ const initKey: { [key: string]: string } = {
 export const PuzzleForm = (props: PuzzleFormProps) => {
   const [alpha, setAlpha] = useState(initKey);
 
-  const fieldArr: JSX.Element[] = props.text
-    .split(' ')
-    .map(word => (
-      <WordField
-        key={uuid()}
-        word={word}
-        alphabet={alpha}
-        setAlpha={setAlpha}
-      />
-    ));
+  const fieldArr: JSX.Element[] = props.text.map(word => (
+    <WordField key={uuid()} word={word} alphabet={alpha} setAlpha={setAlpha} />
+  ));
 
   return <StyledForm>{fieldArr}</StyledForm>;
 };
