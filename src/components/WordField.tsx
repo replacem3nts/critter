@@ -1,5 +1,4 @@
-import { EventEmitter } from 'events';
-import React, { BaseSyntheticEvent } from 'react';
+import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { LetterInput, WordDiv } from './UI/WordFieldUI';
 
@@ -13,22 +12,26 @@ interface WordFieldProps {
   alphabet: { [key: string]: string };
 }
 
-export const WordField = (props: WordFieldProps) => {
-  const updateChar = (e: BaseSyntheticEvent): void => {
-    const { name, value } = e.target;
+export const WordField: React.FC<WordFieldProps> = ({
+  word,
+  setAlpha,
+  alphabet,
+}) => {
+  const updateChar = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
-    props.setAlpha({ ...props.alphabet, [name]: value });
+    const { name, value } = e.target;
+    setAlpha({ ...alphabet, [name]: value });
   };
 
-  const renderFields = (): JSX.Element[] => {
-    return props.word.map((char: string) => {
+  const renderFields = () => {
+    return word.map((char: string) => {
       if (char.match(/[a-zA-Z]/)) {
         return (
           <React.Fragment key={uuid()}>
             <label>
               <LetterInput
                 name={char}
-                value={props.alphabet[char]}
+                value={alphabet[char]}
                 onChange={updateChar}
                 autoFocus={false}
               />
@@ -42,5 +45,5 @@ export const WordField = (props: WordFieldProps) => {
     });
   };
 
-  return <WordDiv charCount={props.word.length + 1}>{renderFields()}</WordDiv>;
+  return <WordDiv charCount={word.length + 1}>{renderFields()}</WordDiv>;
 };

@@ -38,10 +38,10 @@ const initKey: { [key: string]: string } = {
 
 const bottomKey = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-export const PuzzleForm = (props: PuzzleFormProps) => {
+export const PuzzleForm: React.FC<PuzzleFormProps> = ({ text }) => {
   const [alpha, setAlpha] = useState(initKey);
 
-  const fieldArr: JSX.Element[] = props.text.map(word => (
+  const fieldArr: JSX.Element[] = text.map(word => (
     <WordField key={uuid()} word={word} alphabet={alpha} setAlpha={setAlpha} />
   ));
 
