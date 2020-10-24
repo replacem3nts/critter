@@ -17,26 +17,25 @@ export const WordField = (props: WordFieldProps) => {
     return props.word.map((char: string) => {
       if (char.match(/[a-z]/)) {
         return (
-          <span key={uuid()}>
-            <LetterInput
-              name={char}
-              value={props.alphabet[char]}
-              onChange={e =>
-                props.setAlpha({ ...props.alphabet, [char]: e.target.value })
-              }
-              autoComplete="false"
-            />
-            {char}
-          </span>
+          <React.Fragment key={uuid()}>
+            <label>
+              <LetterInput
+                name={char}
+                value={props.alphabet[char]}
+                onChange={e =>
+                  props.setAlpha({ ...props.alphabet, [char]: e.target.value })
+                }
+                autoComplete="false"
+              />
+              <br />
+              {char}
+            </label>
+          </React.Fragment>
         );
       }
-      return (
-        <span key={uuid()}>
-          <div>{char}</div>
-        </span>
-      );
+      return <React.Fragment key={uuid()}>{char}</React.Fragment>;
     });
   };
 
-  return <WordDiv charCount={props.word.length}>{renderFields()}</WordDiv>;
+  return <WordDiv charCount={props.word.length + 1}>{renderFields()}</WordDiv>;
 };
