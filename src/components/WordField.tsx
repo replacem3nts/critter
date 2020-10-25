@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuid } from 'uuid';
 import { LetterInput, WordDiv } from './UI/WordFieldUI';
 
 interface WordFieldProps {
@@ -24,10 +23,10 @@ export const WordField: React.FC<WordFieldProps> = ({
   };
 
   const renderFields = () => {
-    return word.map((char: string) => {
+    return word.map((char, index) => {
       if (char.match(/[a-zA-Z]/)) {
         return (
-          <React.Fragment key={uuid()}>
+          <React.Fragment key={index}>
             <label>
               <LetterInput
                 name={char}
@@ -41,7 +40,7 @@ export const WordField: React.FC<WordFieldProps> = ({
           </React.Fragment>
         );
       }
-      return <React.Fragment key={uuid()}>{char}</React.Fragment>;
+      return <React.Fragment key={index}>{char}</React.Fragment>;
     });
   };
 

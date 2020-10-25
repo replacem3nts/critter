@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { WordField } from './WordField';
-import { v4 as uuid } from 'uuid';
 import { StyledForm } from './UI/PuzzleFormUI';
 
 interface PuzzleFormProps {
@@ -41,20 +40,15 @@ const bottomKey = 'abcdefghijklmnopqrstuvwxyz'.split('');
 export const PuzzleForm: React.FC<PuzzleFormProps> = ({ text }) => {
   const [alpha, setAlpha] = useState(initKey);
 
-  const fieldArr: JSX.Element[] = text.map(word => (
-    <WordField key={uuid()} word={word} alphabet={alpha} setAlpha={setAlpha} />
+  const fieldArr: JSX.Element[] = text.map((word, index) => (
+    <WordField key={index} word={word} alphabet={alpha} setAlpha={setAlpha} />
   ));
 
   return (
     <StyledForm>
       {fieldArr}
       <br />
-      <WordField
-        key={uuid()}
-        word={bottomKey}
-        alphabet={alpha}
-        setAlpha={setAlpha}
-      />
+      <WordField word={bottomKey} alphabet={alpha} setAlpha={setAlpha} />
     </StyledForm>
   );
 };
