@@ -7,6 +7,12 @@ interface WordDivProps {
 export const WordDiv = styled.div<WordDivProps>`
   display: flex;
   grid-column: span ${props => props.charCount};
+
+  & label {
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 export const LetterInput = styled.input`
@@ -16,8 +22,4 @@ export const LetterInput = styled.input`
   border: 3px solid darkslategray;
   background-color: whitesmoke;
   justify-content: center;
-
-  &:focus {
-    background-color: green;
-  }
 `;

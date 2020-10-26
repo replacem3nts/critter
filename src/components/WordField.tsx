@@ -29,10 +29,11 @@ export const WordField: React.FC<WordFieldProps> = ({
           <React.Fragment key={index}>
             <label>
               <LetterInput
+                type="text"
+                maxLength={1}
                 name={char}
                 value={alphabet[char]}
                 onChange={updateChar}
-                autoFocus={false}
               />
               <br />
               {char}
