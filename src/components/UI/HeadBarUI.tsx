@@ -13,6 +13,7 @@ export const HeadBarGrid = styled.div`
   align-self: center;
   justify-self: center;
   box-sizing: border-box;
+  grid-template-columns: 1fr 1fr;
 `
 
 export const LogoCont = styled.span`
@@ -31,10 +32,11 @@ export const LogoLink = styled(Link)`
   font-family: "Helvetica", sans-serif;
 `
 
-export const HeadNavCont = styled.div`
+export const HeadNavCont = styled.nav`
   display: grid;
   grid-auto-flow: column;
   height: 60px;
+  border: solid #ffffff 2px;
 `
 
 export const HeadLink = styled(Link)`
@@ -43,9 +45,8 @@ export const HeadLink = styled(Link)`
   justify-content: center;
   font-size: 16px;
   font-weight: 600;
-  height: 46px;
   border-left: solid #ffffff 2px;
-  border-bottom: solid #ffffff 2px;
+  border-right: solid #ffffff 2px;
   color: rgb(23, 26, 30);
   font-family: "Open Sans", sans-serif;
 `

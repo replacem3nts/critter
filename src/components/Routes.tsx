@@ -1,6 +1,6 @@
 export const Routes = {
   home: "/",
-  new: "/new/",
+  create: "/create/",
   solve: "/solve/",
   about: "/about/",
 }
