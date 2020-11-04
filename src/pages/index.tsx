@@ -14,13 +14,8 @@ const IndexPage = () => (
         tweets.
       </p>
       <p>On the plus side, you get to choose the twitter account...</p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-      <PuzzleForm
-        text={"to be or not to be, that is the question."
-          .split(" ")
-          .map(word => word.split(""))}
-      />
+      <Link to="/page-2/">GFY</Link> <br />
+      <Link to="/using-typescript/">THIS LINK DOESNT EXIST</Link>
     </div>
   </Layout>
 )
