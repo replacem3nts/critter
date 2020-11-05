@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-export const HeadBarCont = styled.div`
+export const HeadBarCont = styled.header`
   display: grid;
   position: relative;
   background: #9ea0a8;
